@@ -15,22 +15,35 @@ export interface Startup {
   dealAmount?: string;
   equity?: string;
   description?: string;
+  products?: string[];
 }
+
 
 export const startups: Startup[] = [
   {
-  id: "bluepine-industries",
-  name: "BluePine Industries",
-  season: 1,
-  episode: 1,
-  city: "Faridabad",
-  category: "Frozen Momos",
-  ask: "₹50L for 5%",
-  deal: "Yes",
-  dealAmount: "₹75L for 16%",
-  sharks: ["Aman Gupta", "Ashneer Grover", "Vineeta Singh"],
-  description: "Frozen momos manufacturing and distribution startup."
-},
+    id: "bluepine-industries",
+    name: "BluePine Industries",
+    season: 1,
+    episode: 1,
+    city: "Faridabad",
+    category: "Frozen Momos",
+    ask: "₹50L for 5%",
+    deal: "Yes",
+    dealAmount: "₹75L for 16%",
+    sharks: ["Aman Gupta", "Ashneer Grover", "Vineeta Singh"],
+    description: "Frozen momos manufacturing and distribution startup.",
+
+    products: [
+      "Chicken Momos",
+      "Veg Momos",
+      "Paneer Momos",
+      "Frozen Spring Rolls"
+    ],
+    website: "https://bluepinefoods.com",
+    founders: ["Shubham Goel", "Gaurav Goyal"]
+  },
+
+
 {
   id: "booz-scooters",
   name: "Booz Scooters",
@@ -42,7 +55,15 @@ export const startups: Startup[] = [
   deal: "Yes",
   dealAmount: "₹40L for 50%",
   sharks: ["Ashneer Grover", "Vineeta Singh"],
-  description: "Electric scooter rental platform for cities."
+  description: "Electric scooter rental platform for private campuses and cities.",
+
+  products: [
+    "Electric Scooter Rentals",
+    "Campus Mobility Solutions",
+    "Fleet Management Services"
+  ],
+  website: "https://boozmobility.com",
+  founders: ["Rakesh Sharma", "Nikhil Mehta"]
 },
 {
   id: "heart-up-my-sleeves",
@@ -55,8 +76,18 @@ export const startups: Startup[] = [
   deal: "Yes",
   dealAmount: "₹25L for 30%",
   sharks: ["Anupam Mittal", "Vineeta Singh"],
-  description: "Detachable sleeves for women fashion outfits."
+  description: "Fashion accessory brand offering detachable sleeves to style outfits differently.",
+
+  products: [
+    "Detachable Net Sleeves",
+    "Embroidered Sleeves",
+    "Festive Wear Sleeves",
+    "Designer Sleeve Accessories"
+  ],
+  website: "https://heartupmysleeves.com",
+  founders: ["Aishwarya Sharma"]
 },
+
 
 {
   id: "tagz-foods",
