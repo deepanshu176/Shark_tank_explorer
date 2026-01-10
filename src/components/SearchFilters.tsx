@@ -1,5 +1,8 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+
 import {
   Select,
   SelectContent,
@@ -42,6 +45,18 @@ const SearchFilters = ({
   onClearFilters,
   hasActiveFilters,
 }: SearchFiltersProps) => {
+
+  // ✅ THIS WAS MISSING
+  const navigate = useNavigate();
+
+  // ✅ AUTO NAVIGATE WHEN SHARK SELECTED
+  useEffect(() => {
+    if (shark && shark !== "all" && shark !== "All Sharks") {
+      const slug = shark.toLowerCase().replace(/\s+/g, "-");
+      navigate(`/shark/${slug}`);
+    }
+  }, [shark, navigate]);
+
   return (
     <motion.div 
       className="space-y-4"
@@ -67,6 +82,7 @@ const SearchFilters = ({
           <span className="font-medium">Filters:</span>
         </div>
 
+        {/* SEASON */}
         <Select value={season} onValueChange={(value) => { setSeason(value); setEpisode("all"); }}>
           <SelectTrigger className="w-[140px] glass border-border/30 hover:border-primary/30 transition-colors">
             <SelectValue placeholder="Season" />
@@ -80,6 +96,7 @@ const SearchFilters = ({
           </SelectContent>
         </Select>
 
+        {/* 🦈 SHARK FILTER → AUTO PROFILE PAGE */}
         <Select value={shark} onValueChange={setShark}>
           <SelectTrigger className="w-[160px] glass border-border/30 hover:border-primary/30 transition-colors">
             <SelectValue placeholder="Shark" />
@@ -92,6 +109,7 @@ const SearchFilters = ({
           </SelectContent>
         </Select>
 
+        {/* DEAL */}
         <Select value={deal} onValueChange={setDeal}>
           <SelectTrigger className="w-[130px] glass border-border/30 hover:border-primary/30 transition-colors">
             <SelectValue placeholder="Deal Status" />
