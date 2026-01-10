@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { startups } from "@/data/startups";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, MapPin, Tv, Users, IndianRupee } from "lucide-react";
+import { ArrowLeft, MapPin, Tv, Users, IndianRupee, ShoppingBag, User } from "lucide-react";
 
 const StartupDetails = () => {
   const { id } = useParams();
@@ -111,16 +111,52 @@ const StartupDetails = () => {
         </div>
       )}
 
+      {/* 🛒 Products */}
+      {startup.products && startup.products.length > 0 && (
+        <div className="glass-card p-6 space-y-3">
+          <h3 className="text-xl font-semibold flex items-center gap-2">
+            <ShoppingBag className="h-5 w-5 text-accent" />
+            Products
+          </h3>
+
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-muted-foreground">
+            {startup.products.map((product, index) => (
+              <li
+                key={index}
+                className="bg-white/5 rounded-lg px-4 py-2 border border-white/10"
+              >
+                {product}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {/* 👤 Founders */}
+      {startup.founders && startup.founders.length > 0 && (
+        <div className="glass-card p-6 space-y-2">
+          <h3 className="text-xl font-semibold flex items-center gap-2">
+            <User className="h-5 w-5 text-accent" />
+            Founders
+          </h3>
+          <p className="text-muted-foreground">
+            {startup.founders.join(", ")}
+          </p>
+        </div>
+      )}
+
       {/* 🌐 Website */}
       {startup.website && (
-        <a
-          href={startup.website}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-block mt-4 text-primary hover:underline"
-        >
-          Visit Official Website →
-        </a>
+        <div>
+          <a
+            href={startup.website}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 text-primary hover:underline"
+          >
+            Visit Official Website →
+          </a>
+        </div>
       )}
     </div>
   );
