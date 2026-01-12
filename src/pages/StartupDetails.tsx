@@ -2,7 +2,15 @@ import { useParams, useNavigate } from "react-router-dom";
 import { startups } from "@/data/startups";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, MapPin, Tv, Users, IndianRupee, ShoppingBag, User } from "lucide-react";
+import {
+  ArrowLeft,
+  MapPin,
+  Tv,
+  Users,
+  IndianRupee,
+  ShoppingBag,
+  User
+} from "lucide-react";
 
 const StartupDetails = () => {
   const { id } = useParams();
@@ -111,24 +119,41 @@ const StartupDetails = () => {
         </div>
       )}
 
-      {/* 🛒 Products */}
+      {/* 🛒 Products with Image + Link */}
       {startup.products && startup.products.length > 0 && (
-        <div className="glass-card p-6 space-y-3">
+        <div className="glass-card p-6 space-y-4">
           <h3 className="text-xl font-semibold flex items-center gap-2">
             <ShoppingBag className="h-5 w-5 text-accent" />
             Products
           </h3>
 
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-muted-foreground">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {startup.products.map((product, index) => (
-              <li
+              <a
                 key={index}
-                className="bg-white/5 rounded-lg px-4 py-2 border border-white/10"
+                href={product.link}
+                target="_blank"
+                rel="noreferrer"
+                className="group bg-white/5 rounded-xl overflow-hidden border border-white/10 hover:scale-[1.02] transition"
               >
-                {product}
-              </li>
+                {/* ✅ Fixed Image Container */}
+                <div className="h-48 bg-white flex items-center justify-center overflow-hidden p-2">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="max-h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+
+                <div className="p-3">
+                  <p className="font-medium group-hover:text-primary">
+                    {product.name}
+                  </p>
+                  <p className="text-sm text-primary mt-1">View Product →</p>
+                </div>
+              </a>
             ))}
-          </ul>
+          </div>
         </div>
       )}
 

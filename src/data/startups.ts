@@ -15,35 +15,56 @@ export interface Startup {
   dealAmount?: string;
   equity?: string;
   description?: string;
-  products?: string[];
+  products?: {   // ✅ optional hai
+    name: string;
+    image: string;
+    link: string;
+  }[];
 }
 
 
 export const startups: Startup[] = [
-  {
-    id: "bluepine-industries",
-    name: "BluePine Industries",
-    season: 1,
-    episode: 1,
-    city: "Faridabad",
-    category: "Frozen Momos",
-    ask: "₹50L for 5%",
-    deal: "Yes",
-    dealAmount: "₹75L for 16%",
-    sharks: ["Aman Gupta", "Ashneer Grover", "Vineeta Singh"],
-    description: "Frozen momos manufacturing and distribution startup.",
+{
+  id: "bluepine-industries",
+  name: "BluePine Industries",
+  season: 1,
+  episode: 1,
+  city: "Faridabad",
+  category: "Frozen Momos & Snacks",
+  ask: "₹50L for 5%",
+  valuation: "₹10 Cr",
+  deal: "Yes",
+  dealAmount: "₹75L for 16%",
+  equity: "16%",
+  sharks: ["Aman Gupta", "Ashneer Grover", "Vineeta Singh"],
+  website: "https://bluepinefoods.com",
+  founders: ["Aditi Bhutia Madan"],
+  description:
+    "BluePine Industries is a frozen food startup specializing in ready-to-cook momos and snacks. The company focuses on hygienic manufacturing, consistent taste, and large-scale distribution through retail and food service channels.",
 
-    products: [
-      "Chicken Momos",
-      "Veg Momos",
-      "Paneer Momos",
-      "Frozen Spring Rolls"
-    ],
-    website: "https://bluepinefoods.com",
-    founders: ["Shubham Goel", "Gaurav Goyal"]
-  },
-
-
+  products: [
+    {
+      name: "Frozen Classic Paneer Momo (Maida) – 20 Pieces",
+      image: "https://bluepinefoods.com/wp-content/uploads/2024/04/Mini-Paneer-Maida.jpg",
+      link: "https://bluepinefoods.com/product/frozen-classic-paneer-momo-in-fine-flour-maida-20-pieces/"
+    },
+    {
+      name: "Frozen Classic Veg Momo (Maida) – 20 Pieces",
+      image: "https://bluepinefoods.com/wp-content/uploads/2024/04/Mini-Veg-Maida.jpg",
+      link: "https://bluepinefoods.com/product/frozen-classic-veg-momo-in-fine-flour-maida-20-pieces/"
+    },
+    {
+      name: "Frozen Classic Chicken Momo (Maida) – 20 Pieces",
+      image: "https://bluepinefoods.com/wp-content/uploads/2024/05/Mini-Chicken-Maida.jpg",
+      link: "https://bluepinefoods.com/product/frozen-classic-chicken-momo-in-fine-flour-maida-20-pieces/"
+    },
+    {
+      name: "Frozen Classic Chicken Momo (Wheat Atta) – 20 Pieces",
+      image: "https://bluepinefoods.com/wp-content/uploads/2024/05/Classic-Chicken-Wheat-Momos.jpg",
+      link: "https://bluepinefoods.com/product/frozen-classic-chicken-momo-in-wheat-flour-atta-20-pieces/"
+    }
+  ]
+},
 {
   id: "booz-scooters",
   name: "Booz Scooters",
@@ -56,14 +77,8 @@ export const startups: Startup[] = [
   dealAmount: "₹40L for 50%",
   sharks: ["Ashneer Grover", "Vineeta Singh"],
   description: "Electric scooter rental platform for private campuses and cities.",
-
-  products: [
-    "Electric Scooter Rentals",
-    "Campus Mobility Solutions",
-    "Fleet Management Services"
-  ],
   website: "https://boozmobility.com",
-  founders: ["Rakesh Sharma", "Nikhil Mehta"]
+  founders: ["Rutvij Dasadia"]
 },
 {
   id: "heart-up-my-sleeves",
@@ -75,72 +90,143 @@ export const startups: Startup[] = [
   ask: "₹25L for 10%",
   deal: "Yes",
   dealAmount: "₹25L for 30%",
+  equity: "30%",
   sharks: ["Anupam Mittal", "Vineeta Singh"],
-  description: "Fashion accessory brand offering detachable sleeves to style outfits differently.",
+  description:
+    "Fashion accessory brand offering detachable sleeves that can be worn with different outfits to create new looks. Products include sequined, ruffled, fur and organza designer sleeves.",
 
   products: [
-    "Detachable Net Sleeves",
-    "Embroidered Sleeves",
-    "Festive Wear Sleeves",
-    "Designer Sleeve Accessories"
+    {
+      name: "Black Baby Full Sequined Sleeves",
+      image: "https://m.media-amazon.com/images/I/51y+zCQORaL._SY879_.jpg",
+      link: "https://amzn.to/4qMfgjK"
+    },
+    {
+      name: "Fur Cuffs Red Sleeves",
+      image: "https://m.media-amazon.com/images/I/61I8EijVgIL._SY679_.jpg",
+      link: "https://amzn.to/3Z745GA"
+    },
+    {
+      name: "Black Elite Ruffled Sleeves",
+      image: "https://m.media-amazon.com/images/I/61Tz229EC5L._SY879_.jpg",
+      link: "https://amzn.to/3LGJMN9"
+    },
+    {
+      name: "White Organza Bubble Sleeves",
+      image: "https://m.media-amazon.com/images/I/41K+9Z2tGsL._SY879_.jpg",
+      link: "https://amzn.to/4qMfuaA"
+    }
   ],
+
   website: "https://heartupmysleeves.com",
-  founders: ["Aishwarya Sharma"]
-},
-
-
-{
-  id: "tagz-foods",
-  name: "Tagz Foods",
-  season: 1,
-  episode: 2,
-  city: "Bengaluru",
-  category: "Healthy Chips",
-  ask: "₹70L for 1%",
-  deal: "Yes",
-  dealAmount: "₹70L for 2.75%",
-  sharks: ["Ashneer Grover"],
-  description: "Baked healthy potato chips brand."
+  founders: ["Riya Khattar"]
 },
 {
   id: "head-and-heart",
   name: "Head and Heart",
   season: 1,
   episode: 2,
-  city: "-",
+  city: "India",
   category: "Brain Development Course",
   ask: "₹50L for 5%",
   deal: "No",
   dealAmount: "No Deal",
   sharks: [],
-  description: "Brain development learning courses for kids."
+  description:
+    "Head and Heart provides brain development and cognitive skill enhancement programs for children through structured training modules and learning techniques.",
+
+  products: [
+    {
+      name: "Brain Optimization Program",
+      image: "https://thehnh.in/assets/images/offerings/BrainOptimization%2001.webp",
+      link: "https://thehnh.in/brain-optimization.php"
+    }
+  ],
+
+  website: "https://thehnh.in/",
+  founders: ["Gurnandan Singh"]
+},
+{
+  id: "tagz-foods",
+  name: "TagZ Foods",
+  season: 1,
+  episode: 2,
+  city: "Bengaluru",
+  category: "Healthy Chips & Snacks",
+  ask: "₹70L for 1%",
+  deal: "Yes",
+  dealAmount: "₹70L for 2.75%",
+  equity: "2.75%",
+  sharks: ["Ashneer Grover"],
+  description:
+    "TagZ Foods is a healthy snacking brand offering popped and baked potato chips and chocolates with no cholesterol and no preservatives, focusing on guilt-free snacking.",
+
+  products: [
+    {
+      name: "TagZ Assorted Pack of 8 Pouches",
+      image: "https://m.media-amazon.com/images/I/61QmWlsDL0L._SX679_PIbundle-8,TopRight,0,0_AA679SH20_.jpg",
+      link: "https://amzn.to/456vo7p"
+    },
+    {
+      name: "TagZ Dark Chocolate – Original, Coffee & Mint (Pack of 3)",
+      image: "https://m.media-amazon.com/images/I/51ltHZ05B2L._SX679_.jpg",
+      link: "https://amzn.to/457Hc9w"
+    },
+    {
+      name: "TagZ Popped Potato Chips Assorted Flavors (Pack of 8)",
+      image: "https://m.media-amazon.com/images/I/61HV2X1euOL._SX679_PIbundle-8,TopRight,0,0_AA679SH20_.jpg",
+      link: "https://amzn.to/453OZVP"
+    },
+    {
+      name: "TagZ Beer n Barbeque Popped Chips (Pack of 8)",
+      image: "https://m.media-amazon.com/images/I/71Rhkxc8qyL._SX679_PIbundle-8,TopRight,0,0_AA679SH20_.jpg",
+      link: "https://amzn.to/3Nd0yE1"
+    }
+  ],
+
+  website: "https://tagzfoods.com",
+  founders: ["Anish Basu Roy", "Sagar Bhalotia"]
 },
 {
   id: "agri-tourism",
   name: "Agri Tourism",
   season: 1,
   episode: 2,
-  city: "-",
+  city: "Maharashtra",
   category: "Rural Tourism",
   ask: "₹50L for 5%",
   deal: "No",
   dealAmount: "No Deal",
   sharks: [],
-  description: "Rural stay and farming tourism experience."
+  description:
+    "Rural stay and farming tourism experience allowing people to live farm life and learn agriculture.",
+  website: "https://agritourism.in",
+  founders: ["Pandurang Taware"]
 },
-
 {
   id: "qzense-labs",
   name: "qZense Labs",
   season: 1,
   episode: 3,
   city: "Bengaluru",
-  category: "Food Freshness Sensor",
+  category: "Food Freshness Sensor & AI Quality Monitoring",
   ask: "₹1 Cr for 0.25%",
   deal: "No",
   dealAmount: "No Deal",
   sharks: [],
-  description: "AI-based food freshness detection sensors."
+  description:
+    "qZense Labs builds AI-powered food quality sensing technology that helps measure freshness, ripeness, and internal quality of fruits and food products without cutting or damaging them. Their solutions are designed for farmers, food processors, retailers, and supply chain companies to reduce food wastage, improve grading accuracy, and ensure better consumer quality. Using spectroscopy, IoT, and machine learning, qZense enables real-time quality decisions across the cold chain and retail ecosystem.",
+
+  products: [
+    {
+      name: "Q-Scan Handheld Food Quality Scanner (WiFi Enabled, OLED Display)",
+      image: "https://m.media-amazon.com/images/I/61+qTFPr2nL._SY879_.jpg",
+      link: "https://amzn.to/4jG23a8"
+    }
+  ],
+
+  website: "https://qzense.com",
+  founders: ["Rubal Chib", "Dr. Srishti Batra"]
 },
 {
   id: "peeschute",
@@ -148,39 +234,112 @@ export const startups: Startup[] = [
   season: 1,
   episode: 3,
   city: "Jalna",
-  category: "Disposable Urine Bag",
+  category: "Disposable Urine Collection Bags",
   ask: "₹75L for 4%",
   deal: "Yes",
   dealAmount: "₹75L for 6%",
+  equity: "6%",
   sharks: ["Aman Gupta"],
-  description: "Portable urine collection bags for patients."
+  description:
+    "Peeschute manufactures disposable, pocket-sized urine collection bags that instantly solidify liquid, making them hygienic and easy to dispose. The product is useful for bedridden patients, elderly people, travelers, children, and emergency situations where toilets are unavailable. The bags are unisex, leak-proof, odor-controlled, and can be used multiple times per pouch, providing a safe and convenient sanitation solution for healthcare and outdoor use.",
+
+  products: [
+    {
+      name: "(Medi) Value Pack – Disposable Urine Bags (Pack of 30 Bags)",
+      image: "https://m.media-amazon.com/images/I/31P5JUYRUWL.jpg",
+      link: "https://amzn.to/4qoeJVG"
+    },
+    {
+      name: "(Medi) Disposable Urine Bags – Set of 3 Pcs (Pack of 9 Bags)",
+      image: "https://m.media-amazon.com/images/I/51OX44YxXML._SX679_.jpg",
+      link: "https://amzn.to/45AKwdo"
+    },
+    {
+      name: "(Travel) Jumbo Pack – Disposable Urine Bags (Pack of 150 Bags)",
+      image: "https://m.media-amazon.com/images/I/815P9NR7R6L._SX679_.jpg",
+      link: "https://amzn.to/4508Oxm"
+    },
+    {
+      name: "(Medi) Super Saver Pack – Disposable Urine Bags (Pack of 60 Bags)",
+      image: "https://m.media-amazon.com/images/I/61Ls5LUzYhL._SX679_.jpg",
+      link: "https://amzn.to/4pz08W2"
+    }
+  ],
+
+  website: "https://peeschute.com",
+  founders: ["Siddhant Tawarawala"]
 },
 {
   id: "nocd",
-  name: "NOCD",
+  name: "NOCD Energy",
   season: 1,
   episode: 3,
   city: "Bengaluru",
-  category: "Energy Drink",
+  category: "Low-Sugar Energy Drinks",
   ask: "₹50L for 2%",
   deal: "Yes",
-  dealAmount: "₹20L for 15 %equity + ₹30L debt",
+  dealAmount: "₹20L for 15% equity + ₹30L debt",
+  equity: "15% + debt",
   sharks: ["Vineeta Singh"],
-  description: "Low sugar energy drink brand."
-},
+  description:
+    "NOCD is a clean energy drink brand focused on providing instant energy without excessive sugar or harmful stimulants. The drinks are formulated to support mental alertness and physical performance while being suitable for everyday consumption. NOCD targets students, working professionals, and fitness enthusiasts looking for a healthier alternative to traditional energy drinks.",
 
+  products: [
+    {
+      name: "NOCD Energy Drink Berry (Pack of 16 × 250 ml)",
+      image: "https://m.media-amazon.com/images/I/61ubze-4qIS._SX679_PIbundle-16,TopRight,0,0_SX679SY382SH20_.jpg",
+      link: "https://amzn.to/4bq6oMb"
+    },
+    {
+      name: "NOCD Energy Drink Berry (Pack of 4 × 250 ml)",
+      image: "https://m.media-amazon.com/images/I/51OFzmQYX3S._SX679_.jpg",
+      link: "https://amzn.to/3NcL03b"
+    }
+  ],
+
+  website: "https://www.jouleshealth.com/nocd",
+  founders: ["Siddharth Mishra", "Vinay Kumar", "Utkarsh Tewari"]
+},
 {
   id: "cosiq",
   name: "CosIQ",
   season: 1,
   episode: 4,
   city: "Delhi",
-  category: "Intelligent Skincare",
+  category: "Intelligent Skincare & Dermatology-Based Products",
   ask: "₹50L for 7%",
   deal: "Yes",
   dealAmount: "₹50L for 25%",
+  equity: "25%",
   sharks: ["Anupam Mittal", "Namita Thapar"],
-  description: "AI based personalized skincare solutions."
+  description:
+    "CosIQ is a science-backed skincare brand that focuses on ingredient transparency and clinically effective formulations. The brand uses advanced molecular skincare technology to deliver stable, non-irritating, and high-performance products designed for Indian skin conditions, targeting concerns like acne, pigmentation, oil control, and skin aging.",
+
+  products: [
+    {
+      name: "Cos-IQ 23% Vitamin C Face Serum (30ml)",
+      image: "https://m.media-amazon.com/images/I/61te-whP08L._SX679_.jpg",
+      link: "https://amzn.to/4qhsGoj"
+    },
+    {
+      name: "Cos-IQ 10% Niacinamide Face Serum (30ml)",
+      image: "https://m.media-amazon.com/images/I/71Xh4HAcY4L._SX679_.jpg",
+      link: "https://amzn.to/4qP5yNH"
+    },
+    {
+      name: "Cos-IQ 10% Vitamin C Serum (60ml)",
+      image: "https://m.media-amazon.com/images/I/619scyj+1zL._SX679_PIbundle-2,TopRight,0,0_AA679SH20_.jpg",
+      link: "https://amzn.to/453QRxP"
+    },
+    {
+      name: "Cos-IQ 20% Vitamin C Serum (30ml)",
+      image: "https://m.media-amazon.com/images/I/712k64z34SL._SX679_.jpg",
+      link: "https://amzn.to/4qjIHtM"
+    }
+  ],
+
+  website: "https://mycosiq.com",
+  founders: ["Angad Talwar", "Kanika Talwar"]
 },
 {
   id: "jhaji-achaar",
@@ -188,12 +347,39 @@ export const startups: Startup[] = [
   season: 1,
   episode: 4,
   city: "Darbhanga",
-  category: "Pickles",
+  category: "Traditional Pickles & Chutneys",
   ask: "₹50L for 10%",
   deal: "No",
   dealAmount: "No Deal",
   sharks: [],
-  description: "Traditional homemade pickle brand."
+  description:
+    "JhaJi Achaar is a traditional food brand from Bihar offering authentic Mithila-style pickles and chutneys made using homemade recipes, sun-drying methods, and natural ingredients without chemical preservatives. The brand focuses on bringing regional Indian flavors to modern consumers.",
+
+  products: [
+    {
+      name: "Mithila Special Mango Pickle (250g)",
+      image: "https://m.media-amazon.com/images/I/51of6eFtmCL._SX679_.jpg",
+      link: "https://amzn.to/49EEMki"
+    },
+    {
+      name: "Dry Stuffed Mango Pickle – Bharua Achar (250g)",
+      image: "https://m.media-amazon.com/images/I/51gAJy1BbSL._SX679_.jpg",
+      link: "https://amzn.to/4pwnZ8M"
+    },
+    {
+      name: "Garlic & Red Chilli Chutney (500g)",
+      image: "https://m.media-amazon.com/images/I/51nHKNqXUkL._SX679_.jpg",
+      link: "https://amzn.to/3YyvrFn"
+    },
+    {
+      name: "Garlic Ginger Chilli Mix Pickle (500g)",
+      image: "https://m.media-amazon.com/images/I/51GpuODvP5L._SX679_.jpg",
+      link: "https://amzn.to/3NDjrA1"
+    }
+  ],
+
+  website: "https://www.jhajistore.com",
+  founders: ["Kalpana Jha", "Uma Kumari Jha"]
 },
 {
   id: "bummer",
@@ -201,12 +387,40 @@ export const startups: Startup[] = [
   season: 1,
   episode: 4,
   city: "Ahmedabad",
-  category: "Underwear",
+  category: "D2C Innerwear & Intimate Apparel",
   ask: "₹75L for 4%",
   deal: "Yes",
   dealAmount: "₹75L for 7.5%",
-  sharks: ["Aman Gupta","Namita Thapar"],
-  description: "Comfortable underwear D2C brand."
+  equity: "7.5%",
+  sharks: ["Aman Gupta", "Namita Thapar"],
+  description:
+    "Bummer is a direct-to-consumer innerwear brand offering ultra-soft, breathable, and sustainable micro-modal underwear for men and women. The brand focuses on comfort, fit, and skin-friendly fabrics that are significantly softer than cotton, with antibacterial properties and stretchability for everyday wear.",
+
+  products: [
+    {
+      name: "Bummer Printed Micro Modal Trunks for Men (Pack of 1)",
+      image: "https://m.media-amazon.com/images/I/71d0CL3779L._SY879_.jpg",
+      link: "https://amzn.to/49hpIKq"
+    },
+    {
+      name: "Bummer Women's Printed Micro Modal Bikini Panty (Pack of 1)",
+      image: "https://m.media-amazon.com/images/I/51t6t3DnL6L._SX679_.jpg",
+      link: "https://amzn.to/3YCFMjE"
+    },
+    {
+      name: "Bummer Women's Printed Micro Modal Hipster Panty (Pack of 1)",
+      image: "https://m.media-amazon.com/images/I/51kvsFXedyL._SX679_.jpg",
+      link: "https://amzn.to/4bq99Nx"
+    },
+    {
+      name: "Bummer Men's Printed Micro Modal Boxers (Combo Pack of 3)",
+      image: "https://m.media-amazon.com/images/I/81uNznzrkhL._SY741_.jpg",
+      link: "https://amzn.to/3N7k2tQ"
+    }
+  ],
+
+  website: "https://bummer.in",
+  founders: ["Sulay Lavsi"]
 },
 
 {
@@ -220,7 +434,11 @@ export const startups: Startup[] = [
   deal: "Yes",
   dealAmount: "₹1 Cr for 1.5%",
   sharks: ["Anupam Mittal", "Aman Gupta"],
-  description: "Modular electric motorcycles."
+  description: "Modular electric motorcycles with customizable body parts and battery systems.",
+
+  
+  website: "https://revampmoto.com",
+  founders: ["Amit Sagar", "Nachiket Bhise"]
 },
 {
   id: "hungry-heads",
@@ -233,7 +451,11 @@ export const startups: Startup[] = [
   deal: "No",
   dealAmount: "No Deal",
   sharks: [],
-  description: "Quick-service maggi based food outlet."
+  description: "Quick-service restaurant chain focused on creative Maggi noodle recipes and fast meals.",
+
+  
+  website: "https://hungryheads.in",
+  founders: ["Rohit Gupta"]
 },
 {
   id: "shrawani-engineers",
@@ -246,7 +468,11 @@ export const startups: Startup[] = [
   deal: "No",
   dealAmount: "No Deal",
   sharks: [],
-  description: "Post pregnancy belly shaping device."
+  description: "Post-pregnancy belly button shaping medical support device for women recovery.",
+
+  
+  website: "https://shrawaniengineers.com",
+  founders: ["Shrawani Patil"]
 },
 
 {
